@@ -1,4 +1,3 @@
-// ...existing code...
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -90,11 +89,6 @@ public:
         count = 0;
     }
 
-    // void for_each(function<void(const T&)> fn) const {
-    //     Node* cur = head;
-    //     while (cur) { fn(cur->value); cur = cur->next; }
-    // }
-
     template<typename Func>
     void for_each(Func&& fn) const {
         const Node* cur = head;
@@ -104,10 +98,11 @@ public:
 
 int main() {
     LinkedList<int> list;
-    list.push_back(10);
-    list.push_back(20);
-    list.push_front(5);
-    list.insert_after(10, 15); // list: 5,10,15,20
+    list.push_back(2);
+    list.push_back(4);
+    list.push_front(8);
+    list.insert_after(2, 6); // list: 2,4,6,8
+    list.push_front(10);
 
     cout << "List contents:";
     list.for_each([](const int& v){ cout << ' ' << v; });
@@ -120,4 +115,3 @@ int main() {
 
     return 0;
 }
-// ...existing code...
